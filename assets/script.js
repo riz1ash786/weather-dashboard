@@ -1,27 +1,22 @@
-// var weatherFormEl = document.getElementById("form-control me-2");
-// weatherFormEl.addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   var weatherLocation = document.getElementById("weatherLocation").value.trim();
-//   fetch(
-//     "https://api.openweathermap.org/data/2.5/onecall?" +
-//       weatherLocation +
-//       ",GB" +
-//       "&appid=180d3a272c4adc1206afaf1424db4d64"
-//   )
-//     .then(function (res) {
-//       return res.json();
-//     })
-//     .then(function (data) {
-//       for (var i = 0; i < data.list.length; i++) {
-//         var weatherInformation = data.list[i];
-//         var date = weatherInformation.dt_txt.split(" ")[0];
-//       }
-//     });
-// });
-
 var apiKey = "180d3a272c4adc1206afaf1424db4d64";
 
+// Saves city into local storage
+var savedSearch = JSON.parse(localStorage.getItem("pastForecastHistory")) || [];
 
-// function for current condition
-function currentCondition(city) {
-  var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+for (i = 0; i < savedSearch.length; i++) {
+  var cityBtn = $(
+    `<button class="list-group-item" data-city="${savedSearch[i]}">${savedSearch[i]}</button>`
+  );
+
+  $("#city-list").prepend(cityBtn);
+}
+// Displays search data of cities onto weather div container
+function weatherDisplay(city) {
+  // URL link to desired data
+  var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
+    "&appid=" +
+    apiKey +
+    "&units=metric";
+    

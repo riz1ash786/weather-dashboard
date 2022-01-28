@@ -1,14 +1,14 @@
 var apiKey = "180d3a272c4adc1206afaf1424db4d64";
 
-// Saves city into local storage
-var savedSearch = JSON.parse(localStorage.getItem("pastForecastHistory")) || [];
+//   localstorage json.parse get stored items
+var savedSearch = JSON.parse(localStorage.getItem("ForecastHistory")) || [];
 
 for (i = 0; i < savedSearch.length; i++) {
   var cityBtn = $(
     `<button class="list-group-item" data-city="${savedSearch[i]}">${savedSearch[i]}</button>`
   );
 
-  $("#city-list").prepend(cityBtn);
+  $("#city-list").append(cityBtn);
 }
 // Displays search data of cities onto weather div container
 function weatherDisplay(city) {
@@ -117,3 +117,30 @@ function retrieveUV(lattitude, longitude) {
     $("#weatherBox").removeClass("d-none");
   });
 }
+// When search button is clicked, the api will bring the data onto the screen
+$("#searchBtn").on("click", function () {
+  var cityName = $("#searchInput").val();
+
+  var cityBtn = $(
+    `<button class="list-group-item" data-city="${cityName}">${cityName}</button>`
+  );
+
+  $("#city-list").append(cityBtn);
+
+  //   localstorage json.stringify set item
+
+  savedSearch.push(cityName);
+
+  localStorage.setItem("ForecastHistory", JSON.stringify(savedSearch));
+
+  weatherDisplay(cityName);
+  fiveDayForecast(cityName);
+});
+
+// Generates API information that was saved in local storage to be recalled again.
+$("#cities-list").on("click", "button", function () {
+  var cityName = $(this).data("city");
+
+  weatherDisplay(cityName);
+  fiveDayForecast(cityName);
+});

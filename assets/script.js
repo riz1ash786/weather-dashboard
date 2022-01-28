@@ -80,3 +80,40 @@ function fiveDayForecast(city) {
     });
   });
 }
+
+// UV Ajax Request
+function retrieveUV(lattitude, longitude) {
+  var queryURLUV =
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+    lattitude +
+    "&lon=" +
+    longitude +
+    "&exclude=minutely,hourly,alerts&appid=" +
+    apiKey +
+    "&units=metric";
+
+  $.ajax({
+    url: queryURLUV,
+    method: "GET",
+  }).then(function (responseUV) {
+    // console.log(responseUV);
+
+    $("#resultUV").removeClass();
+
+    $("#resultUV").text(responseUV.current.uvi);
+
+    if (responseUV.current.uvi < 3) {
+      $("#resultUV").css("background-color", "#3EA72D").css("color", "white");
+    } else if (responseUV.current.uvi >= 3 && responseUV.current.uvi < 6) {
+      $("#resultUV").css("background-color", "#FFF300");
+    } else if (responseUV.current.uvi >= 6 && responseUV.current.uvi < 8) {
+      $("#resultUV").css("background-color", "#F18B00");
+    } else if (responseUV.current.uvi >= 8 && responseUV.current.uvi < 11) {
+      $("#resultUV").css("background-color", "#E53210").css("color", "white");
+    } else if (responseUV.current.uvi >= 11) {
+      $("#resultUV").css("background-color", "#B567A4").css("color", "white");
+    }
+    // Removes the "hide" class from the weather display section of the page
+    $("#weatherBox").removeClass("d-none");
+  });
+}

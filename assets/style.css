@@ -29,15 +29,3 @@ li {
 .apiImage {
   height: 60px;
 }
-
-.uv-low {
-  background-color: green;
-}
-
-.uv-moderate {
-  background-color: yellow;
-}
-
-.uv-severe {
-  background-color: red;
-}

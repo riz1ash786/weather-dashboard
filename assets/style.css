@@ -2,6 +2,11 @@ h1 {
   color: #f8f9ffc9;
   font-size: 50px;
 }
+
+li {
+  list-style-type: none;
+}
+
 .card-header {
   border: 1px solid black;
 }
@@ -12,7 +17,7 @@ h1 {
 }
 
 .col-2 {
-  width: 16%;
+  width: 20%;
   height: 200px;
   padding: 15px;
   border-color: black;

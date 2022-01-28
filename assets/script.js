@@ -40,3 +40,43 @@ function weatherDisplay(city) {
     retrieveUV(response.coord.lat, response.coord.lon);
   });
 }
+
+// Five day weather forecast
+function fiveDayForecast(city) {
+  var forecast5 =
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city +
+    "&appid=" +
+    apiKey +
+    "&units=metric";
+
+  $.ajax({
+    url: forecast5,
+    method: "GET",
+  }).then(function (response) {
+    // console.log(response);
+
+    var response = response.list;
+
+    $(document).ready(function () {
+      $("#date").text(`(${moment().format("l")})`);
+      for (i = 1; i < 7; i++) {
+        var forecastDate = $(`#date${i}`);
+        forecastDate.text(moment().add(`${i}`, "d").format("l"));
+      }
+
+      for (i = 0; i < response.length; i++) {
+        $("#weatherIcon" + i).attr(
+          "src",
+          "https://openweathermap.org/img/wn/" +
+            response[i].weather[0].icon +
+            "@2x.png"
+        );
+        $("#temp" + i).text(
+          "Temp: " + Math.round(response[i].main.temp) + " °C"
+        );
+        $("#humid" + i).text("Humidity: " + response[i].main.humidity + "%");
+      }
+    });
+  });
+}

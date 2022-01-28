@@ -53,15 +53,65 @@
                         </div>
                         <div id="card-body" class="card-body">
                             <img class="apiImage" id="weatherPicture">
-                            <p id="resultTemp"></p>
-                            <p id="resultHum"></p>
-                            <p id="description"></p>
-                            <p id="resultWind"></p>
-                            <p>UV Index: <span id="resultUV"></span></p>
+                            <li id="resultTemp"></li>
+                            <li id="resultHum"></li>
+                            <li id="description"></li>
+                            <li id="resultWind"></li>
+                            <li>UV Index: <span id="resultUV"></span></li>
                         </div>
                     </div>
-
-     
+                    <!--Blue containers for weather images-->
+                    <div class="card-body">
+                        <h3 class="card-title">5-Day Forecast: </h3>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="col-2 card text-white bg-primary">
+                                <div id="forecast1">
+                                    <h6 id="date1"></h6>
+                                    <img class="apiImage" id="weatherIcon1">
+                                    <li id="temp1"></li>
+                                    <li id="humid1"></li>
+                                </div>
+                            </div>
+                            <div class="col-2 card text-white bg-primary">
+                                <div id="forecast2">
+                                    <h6 id="date2"></h6>
+                                    <img class="apiImage" id="weatherIcon2">
+                                    <li id="temp2"></li>
+                                    <li id="humid2"></li>
+                                </div>
+                            </div>
+                            <div class="col-2 card text-white bg-primary">
+                                <div id="forecast3">
+                                    <h6 id="date3"></h6>
+                                    <img class="apiImage" id="weatherIcon3">
+                                    <li id="temp3"></li>
+                                    <li id="humid3"></li>
+                                </div>
+                            </div>
+                            <div class="col-2 card text-white bg-primary">
+                                <div id="forecast4">
+                                    <h6 id="date4"></h6>
+                                    <img class="apiImage" id="weatherIcon4">
+                                    <li id="temp4"></li>
+                                    <li id="humid4"></li>
+                                </div>
+                            </div>
+                            <div class="col-2 card text-white bg-primary">
+                                <div id="forecast5">
+                                    <h6 id="date5"></h6>
+                                    <img class="apiImage" id="weatherIcon5">
+                                    <li id="temp5"></li>
+                                    <li id="humid5"></li>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
      <!-- links for bootstrap js, moment js, jQuery and my script.js file -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

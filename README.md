@@ -2,19 +2,19 @@
 
 ## Description
 
-<!-- - I have been tasked to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. -->
+- I have been tasked to create a weather dashboard to display the weather outlook for multiple cities and offer the current weather conditions as well as the weather forecast for the subsequent 5 days.
 
 ## Acceptance Criteria - Checklist
 
-<!-- - When the 'Generate Password' button is clicked a prompt appears asking the user to select a password length between 8-128 characters.
+- The user is able to input a city of their choice into the input field and click the search button to bring up the current and future weather condiions for that city.
 
-- Once the user has input an integer between 8-128 the prompts cycle through the criteria asking the user if they would like lowercase, uppercase, numbers and special characters in their password.
+- The user at this stage is able to see the name of the chosen city, the date, an icon reprsenting the weather conditons, the tempersture, the humidity, the wind speed and the UV index.
 
-- If the user enters an integer that is not between 8-128 they will be presented with a prompt alerting them, it will return a false and the criteria prompts will not show.
+- The levels of UV are categorised over 5 levels. Depdndent on the level of UV within that chosen city, the UV index number is displayed on a colour according to its severity.
 
-- 'Else' statment in place as part of error handling if user selects a length but does not select a true option for any of the letter, symbols and number criteria.
+- The 5 day forcast also displays to the user the date, an icon to represent the current weather conditions, temperature and levels of humidity.
 
-- Dependent on the users input a password will successfully generate in accordance to the selections made by the user. -->
+- The suer is also able to view a list of the searches that they have made on the deployed site and if they wish they are able to click on a city in the seach history to prersent them once again with the current and future weather conditions.
 
 ---
 

@@ -75,6 +75,7 @@ function fiveDayForecast(city) {
         $("#temp" + i).text(
           "Temp: " + Math.round(response[i].main.temp) + " °C"
         );
+        $("#wind" + i).text("Wind Speed: " + response[i].wind.speed + " MPH");
         $("#humid" + i).text("Humidity: " + response[i].main.humidity + "%");
       }
     });
@@ -101,7 +102,7 @@ function retrieveUV(lattitude, longitude) {
     $("#resultUV").removeClass();
 
     $("#resultUV").text(responseUV.current.uvi);
-
+    // if else statements for calculating UV and applying code using css chaining
     if (responseUV.current.uvi < 3) {
       $("#resultUV").css("background-color", "#3EA72D").css("color", "white");
     } else if (responseUV.current.uvi >= 3 && responseUV.current.uvi < 6) {

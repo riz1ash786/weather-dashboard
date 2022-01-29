@@ -26,7 +26,7 @@ function weatherDisplay(city) {
     // console.log(response);
 
     var tempC = response.main.temp;
-    var todayDate = moment().format("MM/DD/YYYY");
+    var todayDate = moment().format("DD/MM/YYYY");
     var weatherIcon = response.weather[0].icon;
     var weatherURL =
       "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";
@@ -62,7 +62,7 @@ function fiveDayForecast(city) {
       $("#date").text(`(${moment().format("l")})`);
       for (i = 1; i < 7; i++) {
         var forecastDate = $(`#date${i}`);
-        forecastDate.text(moment().add(`${i}`, "d").format("l"));
+        forecastDate.text(moment().add(`${i}`, "d").format("DD/MM/YYYY"));
       }
 
       for (i = 0; i < response.length; i++) {
@@ -127,9 +127,9 @@ $("#searchBtn").on("click", function () {
 
   $("#city-list").append(cityBtn);
 
-  //   localstorage json.stringify set item
-
   savedSearch.push(cityName);
+
+  //   localstorage json.stringify set item
 
   localStorage.setItem("ForecastHistory", JSON.stringify(savedSearch));
 
